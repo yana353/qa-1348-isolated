@@ -3,9 +3,12 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="qa-1348-isolated">
-    <title>qa-1348-isolated</title>
+    <meta name="theme-color" content="#f7f8f5">
+    <meta name="description" content="Discover simple, flexible eSIM data plans with àlaCards.">
+    <meta name="qa-fixture" content="qa-1348-isolated">
+    <title>àlaCards — Stay connected anywhere</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="app.css">
     <link rel="stylesheet" href="footer.css">
     <style>
       html,
@@ -27,18 +30,19 @@
     </style>
   </head>
   <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
+    <a class="skip-link" href="#app">Skip to content</a>
 
     <header class="site-header">
       <div class="header-inner">
-        <a class="brand" href="/" aria-label="qa-1348-isolated home">
+        <a class="brand" href="#app" aria-label="qa-1348-isolated home">
           <span class="brand-name">qa-1348-isolated</span>
         </a>
       </div>
     </header>
 
-    <main id="main-content"></main>
+    <main id="app" aria-live="polite"></main>
     <footer data-footer data-brand="qa-1348-isolated"></footer>
+    <script type="module" src="app.js"></script>
     <script type="module" src="footer.js"></script>
   </body>
 </html>
