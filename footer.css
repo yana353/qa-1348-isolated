@@ -1,0 +1,115 @@
+:root {
+  --footer-background: #111827;
+  --footer-foreground: #f9fafb;
+  --footer-muted: #9ca3af;
+  --footer-focus: #93c5fd;
+}
+
+.site-footer {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 2.5rem max(1.5rem, calc((100vw - 72rem) / 2));
+  color: var(--footer-foreground);
+  background: var(--footer-background);
+}
+
+.site-footer *,
+.site-footer *::before,
+.site-footer *::after {
+  box-sizing: border-box;
+}
+
+.site-footer__inner {
+  display: grid;
+  grid-template-columns: minmax(12rem, 1fr) auto minmax(12rem, 1fr);
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.site-footer__identity {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  min-width: 0;
+}
+
+.site-footer__mark {
+  display: grid;
+  flex: 0 0 2rem;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  color: var(--footer-background);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  background: var(--footer-foreground);
+  border-radius: 0.5rem;
+}
+
+.site-footer__name {
+  overflow: hidden;
+  font-size: 0.9375rem;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.site-footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.site-footer__link {
+  color: var(--footer-muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.site-footer__link:hover {
+  color: var(--footer-foreground);
+}
+
+.site-footer__link:focus-visible {
+  outline: 2px solid var(--footer-focus);
+  outline-offset: 0.25rem;
+  border-radius: 0.125rem;
+}
+
+.site-footer__copyright {
+  margin: 0;
+  color: var(--footer-muted);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  text-align: right;
+}
+
+@media (max-width: 48rem) {
+  .site-footer {
+    padding: 2rem 1.25rem;
+  }
+
+  .site-footer__inner {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 1.25rem;
+    text-align: center;
+  }
+
+  .site-footer__copyright {
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-footer__link {
+    transition: none;
+  }
+}
