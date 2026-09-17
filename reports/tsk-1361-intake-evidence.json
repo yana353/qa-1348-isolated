@@ -1,0 +1,59 @@
+{
+  "task": "TSK-1361",
+  "captured_on": "2026-09-17",
+  "fixture": {
+    "repository": "yana353/qa-1348-isolated",
+    "issue_number": 5,
+    "title": "TSK-1361 regression check: fresh no-label issue intake",
+    "created_at": "2026-09-16T08:32:11Z",
+    "initial_labels": [],
+    "initial_label_evidence": "The issue events contain no label event between creation and the first labeled event.",
+    "first_label": {
+      "name": "ready_for_dev",
+      "occurred_at": "2026-09-17T08:26:13Z"
+    },
+    "follow_up_label": {
+      "name": "in_progress",
+      "occurred_at": "2026-09-17T08:31:29Z"
+    }
+  },
+  "boundary_probe": {
+    "endpoint": "GET /repos/yana353/qa-1348-isolated/issues",
+    "source_urls": [
+      "https://api.github.com/repos/yana353/qa-1348-isolated/issues?state=all&sort=created&direction=asc&per_page=4&page=1",
+      "https://api.github.com/repos/yana353/qa-1348-isolated/issues?state=all&sort=created&direction=asc&per_page=4&page=2"
+    ],
+    "parameters": {
+      "state": "all",
+      "sort": "created",
+      "direction": "asc",
+      "per_page": 4
+    },
+    "page_1": {
+      "issue_numbers": [1, 2, 3, 4],
+      "has_next_link": true
+    },
+    "page_2": {
+      "issue_numbers": [5],
+      "has_previous_link": true
+    },
+    "fixture_position": {
+      "global_position": 5,
+      "page": 2,
+      "slot": 1,
+      "zero_based_offset": 4
+    },
+    "observed_inclusion": true
+  },
+  "sweep_observation": {
+    "events_endpoint": "GET /repos/yana353/qa-1348-isolated/issues/5/events?per_page=100",
+    "source_url": "https://api.github.com/repos/yana353/qa-1348-isolated/issues/5/events?per_page=100",
+    "pickup_event": "ready_for_dev",
+    "pickup_at": "2026-09-17T08:26:13Z",
+    "included": true
+  },
+  "decision_rule": {
+    "present": "PASS",
+    "absent": "REGRESSION against TSK-1361"
+  }
+}
