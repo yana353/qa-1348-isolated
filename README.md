@@ -36,3 +36,19 @@ The repository contains no external application shell, assets, or Figma export.
 The àlaCards demo uses the self-contained visual treatment in `app.css`, while
 the QA header exposes the repository identity without inventing additional
 navigation or account controls.
+
+## TSK-1361 regression check
+
+The fresh unlabeled issue fixture is [issue #5](https://github.com/yana353/qa-1348-isolated/issues/5),
+created on 2026-09-16 with the title `TSK-1361 regression check: fresh no-label issue intake`.
+The issue was picked up by the PM sweep on 2026-09-17 at 08:26 UTC (the `ready_for_dev`
+transition), and subsequently moved to `in_progress` at 08:31 UTC. This confirms that
+the newly created issue was discovered even though it started without labels.
+
+This repository does not contain the PM-agent intake implementation or sweep logs, so
+pagination-boundary behavior cannot be independently inspected here. No intake or issue
+metadata code was changed for this black-box check; the external observation above is the
+regression result for TSK-1361.
+
+The existing `QA-1362` failing test in `test_calc.py` is an unrelated, intentional baseline
+failure and should remain classified as an inherited/unverified failure.
