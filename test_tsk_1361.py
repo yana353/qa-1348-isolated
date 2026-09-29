@@ -46,9 +46,16 @@ class TestTSK1361Evidence(unittest.TestCase):
 
     def test_fixture_started_without_labels_before_pickup(self):
         fixture = self.evidence["fixture"]
+        sweep_observation = self.evidence["sweep_observation"]
+
         self.assertEqual(fixture["initial_labels"], [])
         self.assertEqual(fixture["first_label"]["name"], "ready_for_dev")
         self.assertLess(fixture["created_at"], fixture["first_label"]["occurred_at"])
+        self.assertEqual(sweep_observation["pickup_event"], fixture["first_label"]["name"])
+        self.assertEqual(
+            sweep_observation["pickup_at"], fixture["first_label"]["occurred_at"]
+        )
+        self.assertTrue(sweep_observation["included"])
 
 
 if __name__ == "__main__":
