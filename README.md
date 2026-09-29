@@ -80,3 +80,18 @@ TSK-1361`, never as a successful check. Both branches are covered by
 
 The existing `QA-1362` failing test in `test_calc.py` is an unrelated, intentional baseline
 failure and should remain classified as an inherited/unverified failure.
+
+## TSK-1426 live-refresh test 2
+
+Disposition: **Safe to close** through the authorized issue workflow. This issue
+is a QA-only fixture, not a request for a product feature or bug fix. This note
+records its disposition only; it does not implement or verify live-refresh.
+
+Live-refresh status: **Unverified**. No verification procedure was supplied for
+this fixture. If evidence is required before closure, QA must specify the
+external workflow, action, and expected result before recording a pass or failure.
+The safe-to-close designation is not evidence that live-refresh passed.
+
+No product code or test fixtures were changed for this issue. The function rename
+requested by #10 and the intentional QA-1362 baseline failure remain separate
+and untouched.
