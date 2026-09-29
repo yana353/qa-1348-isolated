@@ -25,11 +25,13 @@ class TestTSK1361Evidence(unittest.TestCase):
 
     def test_fixture_is_present_at_the_recorded_page_boundary(self):
         boundary = self.evidence["boundary_probe"]
-        self.assertEqual(boundary["page_1"]["issue_numbers"], [1, 2, 3, 4])
-        self.assertEqual(boundary["page_2"]["issue_numbers"], [self.fixture_number])
+        self.assertEqual(boundary["page_1"]["issue_numbers"], [1, 2, 3, 4, 5])
+        self.assertEqual(
+            boundary["page_2"]["issue_numbers"], [self.fixture_number, 7, 8, 9]
+        )
         self.assertEqual(
             boundary["fixture_position"],
-            {"global_position": 5, "page": 2, "slot": 1, "zero_based_offset": 4},
+            {"global_position": 6, "page": 2, "slot": 1, "zero_based_offset": 5},
         )
         self.assertTrue(boundary["observed_inclusion"])
         self.assertEqual(
@@ -46,9 +48,16 @@ class TestTSK1361Evidence(unittest.TestCase):
 
     def test_fixture_started_without_labels_before_pickup(self):
         fixture = self.evidence["fixture"]
+        sweep_observation = self.evidence["sweep_observation"]
+
         self.assertEqual(fixture["initial_labels"], [])
         self.assertEqual(fixture["first_label"]["name"], "ready_for_dev")
         self.assertLess(fixture["created_at"], fixture["first_label"]["occurred_at"])
+        self.assertEqual(sweep_observation["pickup_event"], fixture["first_label"]["name"])
+        self.assertEqual(
+            sweep_observation["pickup_at"], fixture["first_label"]["occurred_at"]
+        )
+        self.assertTrue(sweep_observation["included"])
 
 
 if __name__ == "__main__":
