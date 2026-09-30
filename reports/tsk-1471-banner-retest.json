@@ -1,0 +1,45 @@
+{
+  "task": "TSK-1471",
+  "outcome": "VERIFICATION_UNAVAILABLE",
+  "summary": "The banner target and human-confirmed retest procedure are not supplied. No banner retest was performed; neither a pass nor a failure is established.",
+  "scope": "QA retest; frontend/backend ownership remains unconfirmed.",
+  "retest": {
+    "performed": false,
+    "target_url": null,
+    "environment_and_build": null,
+    "confirmed_owner": null,
+    "human_confirmed_steps": null,
+    "expected_behavior": null,
+    "observed_behavior": null
+  },
+  "repository_inspection": {
+    "method": "Local source inspection and repository search only; no browser retest or external platform verification.",
+    "findings": [
+      {
+        "sources": ["README.md", "index.html", "app.js", "footer.js"],
+        "observation": "The connected repository contains a standalone browser-based eSIM demo. app.js contains a trust-banner with eSIM compatibility copy, but no existing TSK-1471 reference identifies it as the retest target."
+      },
+      {
+        "sources": ["calc.py", "multiply2.py", "subtract3.py"],
+        "observation": "The Python modules inspected are arithmetic and greeting helpers, not a banner backend. No backend service, API, persistence, or permission flow for TSK-1471 was identified in this repository."
+      }
+    ],
+    "limitations": "Source inspection is not evidence of runtime banner behavior. The existing demo must not be assumed to be the TSK-1471 target. TSK-1361 evidence and regression tests do not verify TSK-1471."
+  },
+  "missing_prerequisites": [
+    "Ticket-owner confirmation of the banner location, hosting environment/build, and owning team.",
+    "Access requirements and any required account state, test data, or configuration for that environment.",
+    "Human-confirmed reproduction steps and expected banner behavior, including applicable browser/device conditions."
+  ],
+  "closure": {
+    "decision": "NOT_DETERMINED",
+    "reason": "The title's 'safe to close' wording does not establish a passing retest or resolve whether closure without verification is authorized.",
+    "owner_follow_up": "The ticket owner must clarify closure authorization. If verification is required, supply the missing prerequisites and record the executed steps, expected behavior, observed behavior, and outcome. If the banner belongs to an external platform, its owning team must perform that verification; no external handoff has been performed by this run."
+  },
+  "change_scope": {
+    "modified_application_code": false,
+    "modified_tsk_1361_files": false,
+    "prerequisites_stubbed": [],
+    "note": "This QA record is the only repository addition. It records unavailable verification rather than inventing a banner specification or test result; the story's empty-repository-diff criterion is therefore not met."
+  }
+}
