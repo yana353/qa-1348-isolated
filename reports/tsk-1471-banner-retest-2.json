@@ -1,0 +1,43 @@
+{
+  "task": "TSK-1471",
+  "title": "TSK-1471 banner retest 2 (safe to close)",
+  "recorded_on": "2026-09-30",
+  "outcome": "BLOCKED",
+  "summary": "Verification is blocked by missing banner identification and human-confirmed retest instructions. No banner retest was performed and no pass/fail result is established.",
+  "scope": "Verification only; frontend/backend ownership remains unconfirmed.",
+  "retest": {
+    "performed": false,
+    "target_url": null,
+    "environment_and_build": null,
+    "confirmed_owner": null,
+    "human_confirmed_steps": null,
+    "expected_behavior": null,
+    "observed_behavior": null,
+    "pass_fail_result": null
+  },
+  "repository_inspection": {
+    "method": "Local file inventory, source inspection, and TSK-1471 Git history review, alongside the supplied story and ticket discussion; no browser or external platform retest.",
+    "frontend_sources": ["index.html", "app.js", "app.css", "footer.js"],
+    "backend_candidates": ["calc.py", "multiply2.py", "subtract3.py"],
+    "findings": [
+      "The repository contains a standalone eSIM storefront, including a trust-banner in app.js, but no confirmed association with the TSK-1471 target.",
+      "The Python modules contain arithmetic and greeting helpers. No banner backend, API, persistence, or permission flow was identified in the connected repository.",
+      "The current README.md contains demo documentation and TSK-1361 material; the plan's description of a heading-only README does not match this checkout.",
+      "The supplied discussion and inspected repository history do not supply human-confirmed steps or expected behavior for this second retest. Related ticket #12 is context only, not evidence of completion."
+    ],
+    "limitations": "Source inspection does not verify runtime banner behavior. TSK-1361 intake evidence and tests do not establish a TSK-1471 result."
+  },
+  "missing_instructions": [
+    "Identify the banner location, owning repository or platform, and target environment/build, including any required access or account state.",
+    "Provide human-confirmed steps and expected behavior, including what distinguishes the second retest from #12.",
+    "Clarify whether this is only a disposable live-QA marker or requires a human-executed banner retest before closure."
+  ],
+  "follow_up": "The ticket owner must supply the missing instructions. If a retest is required, execute the confirmed steps and record expected versus observed behavior and a pass/fail result. A human must route external platform verification to its owner.",
+  "closure": "Unresolved: the title's 'safe to close' wording is not evidence of a passing retest.",
+  "change_scope": {
+    "application_changes": false,
+    "tsk_1361_changes": false,
+    "prerequisites_stubbed": [],
+    "note": "Only this verification report was added."
+  }
+}
